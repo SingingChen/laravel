@@ -18,7 +18,10 @@ Route::get('/', function () {
 //增加新的任務
 
 Route::post('/task',function (Request $request){
-    //
+    $task = new Task;
+    $task->name =$request->name;
+    $task->save();
+
 });
 //刪除任務
 Route::delete('/task/{task}',function (Task $task){
