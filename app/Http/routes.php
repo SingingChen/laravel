@@ -18,6 +18,14 @@ Route::get('/', function () {
 //增加新的任務
 
 Route::post('/task',function (Request $request){
+    $validator = Validator::make($request->all(),
+        ["name" =>"require| max:2"]
+    );
+
+    if($validator->fails()){
+        require "資料錯誤!!!";
+
+    }
     $task = new Task;
     $task->name =$request->name;
     $task->save();
