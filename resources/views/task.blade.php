@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-plus"></i>增加任務
+                                    <i class="fa fa-plus">NEW TASK</i>
                                 </button>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                         <table class="table table-striped task-table">
 
                             <thead>
-                            <th>TTask</th>
+                            <th>TOTAL TASK</th>
                             <th>&nbsp;</th>
                             </thead>
 
@@ -66,7 +66,7 @@
                                             {{csrf_field()}}
                                             {{ method_field("delete") }}
                                             <button type="submit" class="btn btn-block">
-                                                <i class="fa fa-btn fa-trash"></i>DELETE
+                                                <i class="fa fa-btn fa-trash">DELETE IT</i>
                                             </button>
 
                                         </form>
