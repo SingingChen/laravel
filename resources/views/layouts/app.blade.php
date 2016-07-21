@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-    <title>Laravel 基本範例</title>
-    <!-- CSS 及 JavaScript -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laravel 入門基本範例</title>
+
+    <!-- 字型 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
+
+    <!-- 風格 -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato';
+        }
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+    </style>
+
 </head>
-<body>
-<div class=\"container\">
-    <nav class=\"navbar navbar-default\">
-    <!-- Navbar 內容 -->
-    </nav>
-</div>
+
+<body id="app-layout">
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- TODO: Navbar 內容 -->
+
+            <!-- 首頁連結 -->
+            <a class="navbar-brand" href="{{ url('/') }}">
+                Task List
+            </a>
+
+        </div>
+    </div>
+</nav>
+
 @yield('content_1')
+
+<!-- JavaScripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 </body>
 </html>
