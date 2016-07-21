@@ -40,6 +40,39 @@
                 </div>
 
             </div>
+            @if(count($abc) > 0)
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        目前任務
+                    </div>
+
+                    <div class="panel-body">
+                        <table class="table table-striped task-table">
+
+                            <thead>
+                            <th>TTask</th>
+                            <th>&nbsp;</th>
+                            </thead>
+
+                            <tbody>
+                            @foreach($abc as $tt)
+                                <tr>
+                                    <td class="table-text">
+                                        <div>{{$tt->name}}</div>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            @endif
+
         </div>
     </div>
 

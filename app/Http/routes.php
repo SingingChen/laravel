@@ -1,6 +1,5 @@
 <?php
-use App\Task;
-use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,35 +10,38 @@ use Illuminate\Http\Request;
 | and give it the controller to call when that URI is requested.
 |
 */
-//顯示所有任務
-Route::get('/', function () {
-    return view('tasks');
-});
-//增加新的任務
+use App\Task;
+use Illuminate\Http\Request;
 
-//驗證輸入的資料
+/*顯示所有任務*/
+
+Route::get('/', function () {
+    $taskssss= Task::orderBy("created_at","asc")->get();
+
+    return view('task',[ "abc"=>$taskssss]);
+
+});
+
+
+/*接收表單來新增任務*/
 
 Route::post('/task', function (Request $request) {
-    $validator = Validator::make($request->all(),
-        ["name" => "required|max:255"]
-    );
+    $validator = Validator::make($request->all(),["name"=>"required| max:50"]);
 
-    if($validator->fails())
-    {
-        return redirect("/")
+    if($validator->fails()){
+// return "資料錯誤";
+        return redirect('/')
             ->withInput()
             ->withErrors($validator);
     }
 
-    $task = new Task;
-    $task->name = $request->name;
+    $task=new Task;
+    $task->name=$request->name;
     $task->save();
-
     return redirect("/");
 });
 
-
-//刪除任務
-Route::delete('/task/{task}',function (Task $task){
+/*刪除任務*/
+Route::delete('/task/{id}', function ($id) {
     //
 });
