@@ -61,7 +61,16 @@
                                     <td class="table-text">
                                         <div>{{$tt->name}}</div>
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <form action="{{ url("task/$tt->id") }}" method="POST">
+                                            {{csrf_field()}}
+                                            {{ method_field("delete") }}
+                                            <button type="submit" class="btn btn-block">
+                                                <i class="fa fa-btn fa-trash"></i>DELETE
+                                            </button>
+
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
