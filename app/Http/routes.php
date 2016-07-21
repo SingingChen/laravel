@@ -17,20 +17,28 @@ Route::get('/', function () {
 });
 //增加新的任務
 
-Route::post('/task',function (Request $request){
+//驗證輸入的資料
+
+Route::post('/task', function (Request $request) {
     $validator = Validator::make($request->all(),
-        ["name" =>"require| max:2"]
+        ["name" => "required|max:255"]
     );
 
-    if($validator->fails()){
-        require "資料錯誤!!!";
-
+    if($validator->fails())
+    {
+        return redirect("/")
+            ->withInput()
+            ->withErrors($validator);
     }
+
     $task = new Task;
-    $task->name =$request->name;
+    $task->name = $request->name;
     $task->save();
 
+    return redirect("/");
 });
+
+
 //刪除任務
 Route::delete('/task/{task}',function (Task $task){
     //

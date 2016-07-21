@@ -2,7 +2,6 @@
 
 @section('content_1')
 
-
     <!-- TODO: Bootstrap 樣板... -->
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
@@ -14,8 +13,9 @@
 
                 <div class="panel-body">
                     <!-- TODO: 顯示驗證錯誤 -->
+                @include("common.errors")
 
-                    <!-- 新任務的表單 -->
+                <!-- 新任務的表單 -->
                     <form action="{{ url('task') }}" method="POST" class="form-horizontal">
                     {{ csrf_field() }}
 
@@ -32,7 +32,8 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-plus"></i>增加任務</button>
+                                    <i class="fa fa-plus"></i>增加任務
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -41,7 +42,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- 目前任務 -->
