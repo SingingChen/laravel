@@ -8,5 +8,13 @@ use App\Http\Requests;
 
 class firstController extends Controller
 {
-    //
+    //        return "myResourceController - index()~~~";
+
+    public function index()
+    {
+        return view("myView",["from_server" => "hello~"]);
+    }
+
+
+
 }
