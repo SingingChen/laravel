@@ -22,8 +22,8 @@ Route:: get('/logout',"firstController@logout");
 Route:: get('/products',"firstController@products");
 Route:: get('/products/category',"firstController@products_category");
 Route:: get('/products/brand',"firstController@products_brand");
-Route:: get('/products/detail/{id}',"firstController@products_detail_{id}");
-Route:: get('/search/{key-word}',"firstController@search_{key-word}");
+Route:: get('/products/detail/{id}',"firstController@products_detail");
+Route:: get('/search/{key_word}',"firstController@search");
 Route:: get('/cart',"firstController@cart");
 Route:: get('/checkout',"firstController@checkout");
 

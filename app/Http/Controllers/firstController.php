@@ -36,13 +36,13 @@ class firstController extends Controller
     {
         return"品牌";
     }
-    public function products_detail()
+    public function products_detail($id)
     {
-        return"商品描述";
+            return $id;
     }
-    public function search()
+    public function search($key_word)
     {
-        return"搜尋";
+        return $key_word;
     }
  public function cart()
     {
