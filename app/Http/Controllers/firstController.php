@@ -21,6 +21,9 @@ class firstController extends Controller
     {
     return view("single-product");
     }
+    public function cart(){
+        return view("cart");
+    }
 
     public function index()
     {
