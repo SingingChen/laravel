@@ -2,6 +2,8 @@
 @section("title","Shop Page")
 @section("price","$100")
 @section("navbarList")
+
+    //此區已全數先改為路由路徑
     <li><a href="{{url("/")}}">Home</a></li>
     <li class="active"><a href="{{url("/shop")}}">Shop page</a></li>
     <li><a href="{{url("/single-product")}}">Single product</a></li>
