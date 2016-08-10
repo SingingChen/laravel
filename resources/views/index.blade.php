@@ -11,6 +11,7 @@
     <li><a href="{{url("shop.html")}}">Shop page</a></li>
     <li><a href="{{url("single-product.html")}}">Single product</a></li>
     <li><a href="{{url("cart.html")}}">Cart</a></li>
+{{--原為     <li><a href="checkout.html">Checkout</a></li>--}}
     <li><a href="{{url("checkout.html")}}">Checkout</a></li>
     <li><a href="#">Category</a></li>
     <li><a href="#">Others</a></li>

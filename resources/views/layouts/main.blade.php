@@ -39,6 +39,7 @@
                         <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                         <li><a href="{{url("cart.html")}}"><i class="fa fa-user"></i> My Cart</a></li>
+                        {{--已改 原為 <li><a href="{{url("/checkout")}}"><i class="fa fa-user"></i> Checkout</a></li>--}}
                         <li><a href="{{url("checkout.html")}}"><i class="fa fa-user"></i> Checkout</a></li>
                         <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                     </ul>

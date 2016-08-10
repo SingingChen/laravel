@@ -5,9 +5,11 @@
 
     //此區已全數先改為路由路徑
     <li><a href="{{url("/")}}">Home</a></li>
+    {{--已改為路由--}}
     <li class="active"><a href="{{url("/shop")}}">Shop page</a></li>
     <li><a href="{{url("/single-product")}}">Single product</a></li>
     <li><a href="{{url("/cart")}}">Cart</a></li>
+    {{--已改為路由--}}
     <li><a href="{{url("/checkout")}}">Checkout</a></li>
     <li><a href="#">Category</a></li>
     <li><a href="#">Others</a></li>

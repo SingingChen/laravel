@@ -13,6 +13,9 @@ class firstController extends Controller
     {
         return view("shop");
     }
+    public  function checkout(){
+        return view("checkout");
+    }
 
     public function index()
     {
