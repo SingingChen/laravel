@@ -5,22 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ustora Demo</title>
-
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="{{asset("css/owl.carousel.css")}}">
+    <link rel="stylesheet" href="{{asset("style.css")}}">
+    <link rel="stylesheet" href="{{asset("css/responsive.css")}}">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,8 +38,8 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                        <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                        <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
+                        <li><a href="{{url("cart.html")}}"><i class="fa fa-user"></i> My Cart</a></li>
+                        <li><a href="{{url("checkout.html")}}"><i class="fa fa-user"></i> Checkout</a></li>
                         <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                     </ul>
                 </div>
@@ -75,4 +74,43 @@
 
 <div class="site-branding-area">
     <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="copyright">
+                    <p>&copy; {{Date("Y")}} uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com"
+                                                                               target="_blank">freshDesignweb.com</a></p>
+                </div>
+            </div>
 
+            <div class="col-md-4">
+                <div class="footer-card-icon">
+                    <i class="fa fa-cc-discover"></i>
+                    <i class="fa fa-cc-mastercard"></i>
+                    <i class="fa fa-cc-paypal"></i>
+                    <i class="fa fa-cc-visa"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- End footer bottom area -->
+
+<!-- Latest jQuery form server -->
+<script src="https://code.jquery.com/jquery.min.js"></script>
+
+<!-- Bootstrap JS form CDN -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- jQuery sticky menu -->
+<script src="{{asset("js/owl.carousel.min.js")}}"></script>
+<script src="{{asset("js/jquery.sticky.js")}}"></script>
+
+<!-- jQuery easing -->
+<script src="{{asset("js/jquery.easing.1.3.min.js")}}"></script>
+
+<!-- Main Script -->
+<script src="{{asset("js/main.js")}}"></script>
+
+@yield("scriptAppendArea")
+
+</body>
+</html>
