@@ -9,6 +9,7 @@
 @section("navbarList")
     <li class="active"><a href="{{url("/")}}">Home</a></li>
     <li><a href="{{url("shop.html")}}">Shop page</a></li>
+    {{--樣板原為  <li><a href="single-product.html">Single product</a></li>--}}
     <li><a href="{{url("single-product.html")}}">Single product</a></li>
     <li><a href="{{url("cart.html")}}">Cart</a></li>
 {{--原為     <li><a href="checkout.html">Checkout</a></li>--}}

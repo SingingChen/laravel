@@ -8,7 +8,7 @@
 @section("navbarList")
     <li><a href="{{url("/")}}">Home</a></li>
     <li><a href="{{url("/shop")}}">Shop page</a></li>
-    <li><a href="single-product.html">Single product</a></li>
+    <li><a href="{{("/single-product.html")}}">Single product</a></li>
     <li><a href="cart.html">Cart</a></li>
     <li class="active"><a href="{{url("/checkout")}}">Checkout</a></li>
     <li><a href="#">Category</a></li>

@@ -13,8 +13,13 @@ class firstController extends Controller
     {
         return view("shop");
     }
-    public  function checkout(){
+    public  function checkout()
+    {
         return view("checkout");
+    }
+    public function single_product()
+    {
+    return view("single-product");
     }
 
     public function index()

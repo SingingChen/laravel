@@ -7,6 +7,7 @@
     <li><a href="{{url("/")}}">Home</a></li>
     {{--已改為路由--}}
     <li class="active"><a href="{{url("/shop")}}">Shop page</a></li>
+    {{--原為<li><a href="single-product.html">Single product</a></li>--}}
     <li><a href="{{url("/single-product")}}">Single product</a></li>
     <li><a href="{{url("/cart")}}">Cart</a></li>
     {{--已改為路由--}}

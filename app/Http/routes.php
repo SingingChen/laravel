@@ -17,6 +17,7 @@
 
 Route:: get('/',"firstController@index");
 Route:: get('/shop',"firstController@shop");
+Route::egt('/single-product',"firstController@single_product");
 Route:: get('/contact_us',"firstController@contact_us");
 Route:: get('/login',"firstController@login");
 Route:: get('/logout',"firstController@logout");
