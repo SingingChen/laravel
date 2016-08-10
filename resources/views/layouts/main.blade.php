@@ -39,9 +39,8 @@
                         <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
                         <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                         {{--原為  <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>--}}
-                        <li><a href="{{url("cart.html")}}"><i class="fa fa-user"></i> My Cart</a></li>
-                        {{--已改 原為 <li><a href="{{url("/checkout")}}"><i class="fa fa-user"></i> Checkout</a></li>--}}
-                        <li><a href="{{url("checkout.html")}}"><i class="fa fa-user"></i> Checkout</a></li>
+                        <li><a href="{{url("/cart")}}"><i class="fa fa-user"></i> My Cart</a></li>
+                        <li><a href="{{url("/checkout")}}"><i class="fa fa-user"></i> Checkout</a></li>
                         <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
                     </ul>
                 </div>
@@ -77,24 +76,20 @@
 <div class="site-branding-area">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="copyright">
-                    <p>&copy; {{Date("Y")}} uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com"
-                                                                               target="_blank">freshDesignweb.com</a></p>
+            <div class="col-md-6">
+                <div class="logo">
+                    <h1><a href="./"><img src="{{asset("img/logo.png")}}"></a></h1>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="footer-card-icon">
-                    <i class="fa fa-cc-discover"></i>
-                    <i class="fa fa-cc-mastercard"></i>
-                    <i class="fa fa-cc-paypal"></i>
-                    <i class="fa fa-cc-visa"></i>
+            <div class="col-sm-6">
+                <div class="shopping-item">
+                    <a href="{{url("/cart")}}">Cart - <span class="cart-amunt">@yield("price")</span> <i
+                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                 </div>
             </div>
         </div>
     </div>
-</div> <!-- End footer bottom area -->
+</div> <!-- End site branding area -->
 
 <div class="mainmenu-area">
     <div class="container">
@@ -115,6 +110,9 @@
         </div>
     </div>
 </div> <!-- End mainmenu area -->
+@yield("diffArea")
+
+
 @yield("diffArea")
 <div class="footer-top-area">
     <div class="zigzag-bottom"></div>
