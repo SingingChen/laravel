@@ -14,7 +14,6 @@ class ProductSeeder extends Seeder
         $fake_data=Faker\Factory::create("zh_TW");
         $name=["手機","平板","筆電"];
 //        $price=[8888,9999,11111,22222];
-
         for($i=0;$i<30;$i++){
             $no = $fake_data->ean8;
             $product_name=$name[$fake_data->numberBetween(0,2)];
@@ -31,8 +30,6 @@ class ProductSeeder extends Seeder
                     "IP"=>$fake_data->ipv4,
                 ]
             );
-
-
         }
     }
 }

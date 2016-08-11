@@ -27,6 +27,10 @@ class firstController extends Controller
 
     public function index()
     {
+        $product = new \App\Brand();
+        $product->brand_name="testHello~~~";
+        $product->save();
+//        Product::create(["product_name"=>"這是CONTROLLER"]);
         return view("index");
     }
 }
