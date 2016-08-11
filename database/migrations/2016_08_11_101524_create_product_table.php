@@ -23,6 +23,12 @@ class CreateProductTable extends Migration
             $table->timestamps();
             $table->string("IP");
         });
+        $fake_data=Faker\Factory::create("zh_TW");
+
+        for($i=0;$i>30;$i++){
+            
+
+        }
     }
 
     /**
