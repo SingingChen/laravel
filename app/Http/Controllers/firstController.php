@@ -41,6 +41,6 @@ class firstController extends Controller
 //        $product->brand_name="testHello~~~";
 //        $product->save();
 //        Product::create(["product_name"=>"這是CONTROLLER"]);
-        return view("index",["title"=>"home","products"=>$this->products,"categories"=>$this->categories]);
+        return view("index",["title"=>"home","description" =>" 網頁說明","products"=>$this->products,"categories"=>$this->categories]);
     }
 }

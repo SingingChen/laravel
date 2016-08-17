@@ -81,7 +81,7 @@
                 </div>
                     }
                 @endfor
-                
+
             </div>
         </div>
     </div> <!-- End promo area -->
