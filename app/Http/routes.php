@@ -24,6 +24,36 @@ Route:: get('/contact_us',"firstController@contact_us");
 Route:: get('/login',"firstController@login");
 Route:: get('/logout',"firstController@logout");
 
+Route::get(' /test/write',function(){
+    //建立一個實體$product  繼承Product
+   $product=new \App\Product();
+
+$product->create(["product_name"=>"singing","product_title"=>"singing2"]);
+});
+
+Route::get(' /test/read',function(){
+   $product=new \App\Product();
+    $product_datas=$product->all();
+    foreach($product_datas as $product_data){
+        echo"$product_data->id,$product_data->product_name,$product_data->product_title<br>";
+    }
+});
+Route::get(' /test/update',function(){
+    //不用新增 New   ::為靜態方法 使用在BaseModel中方法
+    $product=\App\Product::find(10);
+    $product->product_name="測試更新";
+    $product->save();
+
+    return redirect("/test/read");
+});
+
+Route::get(' /test/delete/{id}',function($id){
+
+    $product=\App\Product::find($id);
+    $product->delete();
+    return redirect("/test/read");
+
+});
 
 //Route:: get("/show /{name}","firstResoueceController @show");
 
