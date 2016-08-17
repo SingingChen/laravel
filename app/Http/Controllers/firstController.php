@@ -21,18 +21,21 @@ class firstController extends Controller
 
     public function shop()
     {
-        return view("shop");
+        return view("shop",["title"=>"shopping","description" =>" 網頁說明","products"=>$this->products,"categories"=>$this->categories] );
     }
     public  function checkout()
     {
-        return view("checkout");
+        return view("checkout",["title"=>"checkout","description" =>" 網頁說明","products"=>$this->products,"categories"=>$this->categories] );
     }
     public function single_product()
     {
-    return view("single-product");
+    return view("single-product",["title"=>"single-product","description" =>" 網頁說明","products"=>$this->products,"categories"=>$this->categories] );
     }
     public function cart(){
-        return view("cart");
+    return view("cart",["title"=>"cart","description" =>" 網頁說明","products"=>$this->products,"categories"=>$this->categories] );
+}
+    public function cart_add(){
+        return "增加到購物車";
     }
 
     public function index()

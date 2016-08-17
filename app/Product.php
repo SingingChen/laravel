@@ -12,5 +12,5 @@ class Product extends BaseModel
     //拿掉時間戳記 必須是public
     public $timestamps=false;
 
-    protected $fillable=["product_name","product_title"];
+    protected $fillable=["product_name","product_title","product_price"];
 }
