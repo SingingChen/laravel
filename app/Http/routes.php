@@ -15,6 +15,8 @@
 //    return view('welcome');
 //});
 
+use \App\Product as P;
+
 Route:: get('/',"firstController@index");
 Route:: get('/shop',"firstController@shop");
 Route:: get('/single-product',"firstController@single_product");
@@ -26,13 +28,13 @@ Route:: get('/logout',"firstController@logout");
 
 Route::get(' /test/write',function(){
     //建立一個實體$product  繼承Product
-   $product=new \App\Product();
+   $product=P();
 
 $product->create(["product_name"=>"singing","product_title"=>"singing2"]);
 });
 
 Route::get(' /test/read',function(){
-   $product=new \App\Product();
+   $product=new P();
     $product_datas=$product->all();
     foreach($product_datas as $product_data){
         echo"$product_data->id,$product_data->product_name,$product_data->product_title<br>";
@@ -55,6 +57,12 @@ Route::get(' /test/delete/{id}',function($id){
 
 });
 
+Route::get(' /test/categorywrite',function(){
+
+    $category=new \App\Category();
+
+    $category->create(["category_name"=>"singing","create_now"=>"Now"]);
+});
 //Route:: get("/show /{name}","firstResoueceController @show");
 
 
