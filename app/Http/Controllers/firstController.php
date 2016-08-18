@@ -53,6 +53,13 @@ class firstController extends Controller
             $items = Cart::Search(function($cartItem, $rowId){ return $cartItem->id == Request::get("product_id");});
             Cart::update($items->first()->rowId,$items->first()->qty-1);
         }
+        if(Request::get("product_id") && (Request::get("clear")==1 ))
+        {
+            $items =Cart::Seqrch(function($cartItem,$rowId){
+                return $cartItem->id == Request::get("product_id");
+                Cart::remove($items->first()->rowId);
+            });
+        }
         $cart = Cart::content();
         return view("cart", ["title" => "cart", "description" => " 網頁說明", "cart" => $cart]);
 //        return view("cart", ["title" => "cart", "description" => " 網頁說明", "products" => $this->products, "categories" => $this->categories]);
@@ -69,17 +76,21 @@ class firstController extends Controller
 
     public function cart_add(Request $request)
     {
-        $product_id = $request->get("product_id");
+        $product_id = Request::get("product_id");
         $product = \App\Product::find($product_id);
 
-        ShoppingCart::add(["id" => $product_id,
+        Cart::add(["id" => $product_id,
             "name" => $product->product_name,
             "qty" => 1,
             "price" => $product->product_price]);
-        $cart = ShoppingCart::content();
+        $cart = Cart::content();
 
 //        return view("cart",["cart"=>$cart,"title"=>"Cart","description"=>"網頁說明"]);
         return Redirect("cart")->with("cart_from_server", $cart);
+    }
+    public function clear_cart(){
+        Cart::destroy();
+        return Redirect("cart");
     }
 
     public function index()

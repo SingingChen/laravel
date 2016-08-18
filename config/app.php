@@ -204,7 +204,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //設定別名
-        "ShoppingCart"=>Gloudemans\Shoppingcart\Facades\Cart::class,
+        "Cart"=>Gloudemans\Shoppingcart\Facades\Cart::class,
 
     ],
 

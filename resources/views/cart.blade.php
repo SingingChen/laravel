@@ -66,7 +66,7 @@
                                     @foreach($cart as $item)
                                     <tr class="cart_item">
                                         <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                            <a title="Remove this item" class="remove" href="{{url("cart?product_id=$item->id&clear=1")}}">×</a>
                                         </td>
 
                                         <td class="product-thumbnail">
@@ -112,7 +112,7 @@
                                                 <input type="submit" value="Apply Coupon" name="apply_coupon"
                                                        class="button">
                                             </div>
-                                            <input type="submit" value="Update Cart" name="update_cart" class="button">
+                                            <a href="{{url("clear_cart")}}"  class="btn btn-default" >clear cart</a>
                                             <input type="submit" value="Checkout" name="proceed"
                                                    class="checkout-button button alt wc-forward">
                                         </td>
@@ -131,7 +131,7 @@
                                         <tbody>
                                         <tr class="cart-subtotal">
                                             <th>Cart Subtotal</th>
-                                            <td><span class="amount">£15.00</span></td>
+                                            <td><span class="amount">${{Cart::total()}}</span></td>
                                         </tr>
 
                                         <tr class="shipping">
@@ -141,7 +141,7 @@
 
                                         <tr class="order-total">
                                             <th>Order Total</th>
-                                            <td><strong><span class="amount">£15.00</span></strong></td>
+                                            <td><strong><span class="amount">${{Cart::total()}}</span></strong></td>
                                         </tr>
                                         </tbody>
                                     </table>

@@ -66,6 +66,7 @@ Route::get(' /test/categorywrite',function(){
 
     $category->create(["category_name"=>"singing","create_now"=>"Now"]);
 });
+Route::get('/clear_cart',"firstController@clear_cart");
 //Route:: get("/show /{name}","firstResoueceController @show");
 
 
