@@ -6,6 +6,8 @@ use App\Product;
 use Illuminate\Http\Request;
 use ShoppingCart;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class firstController extends Controller
 {
@@ -36,9 +38,25 @@ class firstController extends Controller
         return view("single-product", ["title" => "single-product", "description" => " 網頁說明", "products" => $this->products, "categories" => $this->categories]);
     }
 
-    public function cart()
+    public function cart( Request $request)
     {
-        return view("cart", ["title" => "cart", "description" => " 網頁說明", "products" => $this->products, "categories" => $this->categories]);
+if($request->isMethod('post')){
+    $product_id = $request ->get('product_id');
+    $product =\App\Product::find($product_id);
+    Cart::add(array('id'=>$product_id ,'name'=>$product->product_name,'price'=>$product->product_price,'qty'=>1));
+}
+        $cart = Cart::content();
+        return view("cart", ["title" => "cart", "description" => " 網頁說明","cart" => $cart]);
+//        return view("cart", ["title" => "cart", "description" => " 網頁說明", "products" => $this->products, "categories" => $this->categories]);
+
+//
+//        if (session()->has('cart_from_server')){
+//            $cart =session("cart_from_server");
+//        return view("cart", ["title" => "cart", "description" => " 網頁說明", "cart" => $cart]);
+//        }else{
+//            $cart=array();
+//        return view("cart", ["title" => "cart", "description" => " 網頁說明","cart" => $cart]);
+//        }
     }
 
     public function cart_add(Request $request)
@@ -52,7 +70,8 @@ class firstController extends Controller
             "price" => $product->product_price]);
         $cart=ShoppingCart::content();
 
-        return view("cart",["cart"=>$cart,"title"=>"Cart","description"=>"網頁說明"]);
+//        return view("cart",["cart"=>$cart,"title"=>"Cart","description"=>"網頁說明"]);
+        return Redirect("cart")->with("cart_from_server",$cart);
     }
 
     public function index()

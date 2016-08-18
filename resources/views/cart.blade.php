@@ -45,52 +45,6 @@
                         </form>
                     </div>
 
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                        <div class="thubmnail-recent">
-                            <img src="{{asset("img/product-thumb-1.jpg")}}" class="recent-thumb" alt="">
-                            <h2><a href="{{url("/single-product")}}">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins>
-                                <del>$800.00</del>
-                            </div>
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="{{asset("img/product-thumb-1.jpg")}}" class="recent-thumb" alt="">
-                            <h2><a href="{{url("/single-product")}}">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins>
-                                <del>$800.00</del>
-                            </div>
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="{{asset("img/product-thumb-1.jpg")}}" class="recent-thumb" alt="">
-                            <h2><a href="{{url("/single-product")}}">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins>
-                                <del>$800.00</del>
-                            </div>
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="{{asset("img/product-thumb-1.jpg")}}" class="recent-thumb" alt="">
-                            <h2><a href="{{url("/single-product")}}">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins>
-                                <del>$800.00</del>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                        </ul>
-                    </div>
                 </div>
 
                 <div class="col-md-8">
@@ -109,6 +63,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($cart as $item)
                                     <tr class="cart_item">
                                         <td class="product-remove">
                                             <a title="Remove this item" class="remove" href="#">×</a>
@@ -116,16 +71,18 @@
 
                                         <td class="product-thumbnail">
                                             <a href="{{url("/single-product")}}"><img width="145" height="145"
-                                                                                      alt="poster_1_up" class="shop_thumbnail"
-                                                                                      src="{{asset("img/product-thumb-2.jpg")}}"></a>
+                                                                                      alt="poster_1_up"
+                                                                                      class="shop_thumbnail"
+                                                                                      src="{{asset("img/product-thumb-2.jpg ")}}"></a>
                                         </td>
 
+
                                         <td class="product-name">
-                                            <a href="{{url("/single-product")}}">Ship Your Idea</a>
+                                            <a href="{{url("/single-product")}}">{{$item->name}}</a>
                                         </td>
 
                                         <td class="product-price">
-                                            <span class="amount">£15.00</span>
+                                            <span class="amount">${{$item->price}}</span>
                                         </td>
 
                                         <td class="product-quantity">
@@ -141,6 +98,11 @@
                                             <span class="amount">£15.00</span>
                                         </td>
                                     </tr>
+                                    @endforeach
+
+
+
+
                                     <tr>
                                         <td class="actions" colspan="6">
                                             <div class="coupon">
@@ -160,40 +122,6 @@
                             </form>
 
                             <div class="cart-collaterals">
-
-
-                                <div class="cross-sells">
-                                    <h2>You may be interested in...</h2>
-                                    <ul class="products">
-                                        <li class="product">
-                                            <a href="{{url("/single-product")}}">
-                                                <img width="325" height="325" alt="T_4_front"
-                                                     class="attachment-shop_catalog wp-post-image"
-                                                     src="{{asset("img/product-2.jpg")}}">
-                                                <h3>Ship Your Idea</h3>
-                                                <span class="price"><span class="amount">£20.00</span></span>
-                                            </a>
-
-                                            <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                               data-product_id="22" rel="nofollow" href="{{url("/single-product")}}">Select
-                                                options</a>
-                                        </li>
-
-                                        <li class="product">
-                                            <a href="{{url("/single-product")}}">
-                                                <img width="325" height="325" alt="T_4_front"
-                                                     class="attachment-shop_catalog wp-post-image"
-                                                     src="{{asset("img/product-4.jpg")}}">
-                                                <h3>Ship Your Idea</h3>
-                                                <span class="price"><span class="amount">£20.00</span></span>
-                                            </a>
-
-                                            <a class="add_to_cart_button" data-quantity="1" data-product_sku=""
-                                               data-product_id="22" rel="nofollow" href="{{url("/single-product")}}">Select
-                                                options</a>
-                                        </li>
-                                    </ul>
-                                </div>
 
 
                                 <div class="cart_totals ">
@@ -264,7 +192,10 @@
     </div>
 
 @endsection
+{{--@foreach($cart as $shoppingCart)--}}
+{{--$shoppingCart->id;--}}
 
+{{--@endforeach--}}
 @section("scriptAppendArea")
     <!-- Slider -->
     <script type="text/javascript" src="{{asset("js/bxslider.min.js")}}"></script>

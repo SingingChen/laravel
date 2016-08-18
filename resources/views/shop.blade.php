@@ -47,9 +47,11 @@
                             <del>$999.00</del>
                         </div>
                         <form action="{{url("cart/add")}}" method="post">
+
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <button type="submit" class="btn-default add_to_cart_button">add to cart</button>
+
                         </form>
 
                         {{--<div class="product-option-shop">--}}

@@ -114,8 +114,6 @@
 </div> <!-- End mainmenu area -->
 @yield("diffArea")
 
-
-@yield("diffArea")
 <div class="footer-top-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
