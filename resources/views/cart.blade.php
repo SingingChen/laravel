@@ -87,15 +87,15 @@
 
                                         <td class="product-quantity">
                                             <div class="quantity buttons_added">
-                                                <input type="button" class="minus" value="-">
+                                                <a class="minus" value="-"  href="{{url("cart?product_id=$item->id&&minus=1")}}">-</a>
                                                 <input type="number" size="4" class="input-text qty text" title="Qty"
-                                                       value="1" min="0" step="1">
-                                                <input type="button" class="plus" value="+">
+                                                       value={{$item->qty}} min="0" step="1">
+                                                <a  class="plus" value="+" href="{{url("cart?product_id=$item->id&&add=1")}}">+</a>
                                             </div>
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <span class="amount">£15.00</span>
+                                            <span class="amount">${{$item->subtotal}}</span>
                                         </td>
                                     </tr>
                                     @endforeach
