@@ -55,10 +55,8 @@ class firstController extends Controller
         }
         if(Request::get("product_id") && (Request::get("clear")==1 ))
         {
-            $items =Cart::Seqrch(function($cartItem,$rowId){
-                return $cartItem->id == Request::get("product_id");
-                Cart::remove($items->first()->rowId);
-            });
+            $items =Cart::Search(function($cartItem,$rowId){return $cartItem->id == Request::get("product_id");});
+            Cart::remove($items->first()->rowId);
         }
         $cart = Cart::content();
         return view("cart", ["title" => "cart", "description" => " 網頁說明", "cart" => $cart]);
