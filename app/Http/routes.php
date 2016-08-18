@@ -15,3 +15,7 @@
 //    return view('welcome');
 //});
 Route::get('/',"firstController@index");
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
