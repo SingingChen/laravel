@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'ServiceURL' => 'http://payment-stage.allpay.com.tw/Cashier/AioCheckOut',
-    'HashKey'    => '5294y06JbISpM5x9',
-    'HashIV'     => 'v77hoKGq4kWxNNIS',
-    'MerchantID' => '2000132',
+       'ServiceURL' =>'https://payment.allpay.com.tw/Cashier/AioCheckOut',  // 正是網址
+    //測試網址 'ServiceURL' => 'http://payment-stage.allpay.com.tw/Cashier/AioCheckOut',
+    'HashKey'    => 'lQ9IFlvtjY6MPF8h',
+    'HashIV'     => 'IvDh9NjTbN9zr6Lm',
+    'MerchantID' => '1351974',
 
 ];
