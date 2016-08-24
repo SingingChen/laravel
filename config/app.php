@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         //  註冊服務   shopping Cart
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -205,6 +206,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //設定別名
         "Cart"=>Gloudemans\Shoppingcart\Facades\Cart::class,
+        // 設定社群服務簡寫
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

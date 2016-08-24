@@ -24,10 +24,20 @@ Route:: get('/cart',"firstController@cart");
 Route:: post('/cart',"firstController@cart");
 Route::post("/cart/add","firstController@cart_add");
 
-Route:: get('/checkout',"firstController@checkout");
+
+//加入middleware驗證路由，有登入才能進入指定的controller方法，沒登入則導向至login頁面
+Route:: get('/checkout',["middleware" =>"Auth" ,"uses" => "firstController@checkout"]);
+
 Route:: get('/contact_us',"firstController@contact_us");
-Route:: get('/login',"firstController@login");
-Route:: get('/logout',"firstController@logout");
+Route::post('/signup' ,"firstController@signup");
+Route:: get('/auth/logout',"firstController@auth_logout");
+Route::post("/auth/login", "firstController@auth_login");
+
+Route::get("/login", "firstController@login");
+Route::get('/fb_redirect',"firstController@fb_redirect");
+Route::get('/fb_callback',"firstController@fb_callback");
+
+
 
 Route::get(' /test/write',function(){
     //建立一個實體$product  繼承Product
@@ -70,3 +80,7 @@ Route::get('/clear_cart',"firstController@clear_cart");
 //Route:: get("/show /{name}","firstResoueceController @show");
 
 
+//註解掉Auth功能預設的首頁和登入頁，以使用自定義的頁面
+//Route::auth();
+
+//Route::get('/home', 'HomeController@index');

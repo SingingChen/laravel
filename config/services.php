@@ -34,5 +34,10 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'facebook' =>[
+        'client_id' =>'373736186083531',
+        'client_secret' =>'c9ff15469cdad221cfbe18449134e9ca',
+        'redirect' =>'http://localhost:8080/sample/laravel/public/fb_callback',
+    ]
 
 ];
