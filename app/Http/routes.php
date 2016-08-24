@@ -84,3 +84,13 @@ Route::get('/clear_cart',"firstController@clear_cart");
 //Route::auth();
 
 //Route::get('/home', 'HomeController@index');
+
+Route::group([
+    'namespace' => 'ScottChayaa\Allpay\Controllers',
+    'prefix'    => 'allpay_demo_201608'],
+    function () {
+        Route::get('/', 'DemoController@index');
+        Route::get('/checkout', 'DemoController@checkout');
+    }
+);
+

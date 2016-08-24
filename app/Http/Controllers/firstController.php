@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use \App\Product;
+use App\SocialiteUserService;
 use Request;
 use Auth;
 use Socialite;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 use Gloudemans\Shoppingcart\Facades\Cart;
-
+use Allpay;
 class firstController extends Controller
 {
     //在這新增路由方法
@@ -140,18 +141,47 @@ class firstController extends Controller
 
     public function auth_logout()
     {
-Auth::logout();
+        Auth::logout();
         return redirect("/");
     }
 
-    public function fb_redirect(){
+    public function fb_redirect()
+    {
         //進行facebook登入驗證
-return Socialite::driver('facebook')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
-    public function fb_callback(){
-return"i'm back!!";
+    public function fb_callback(SocialiteUserService $socialiteUserService)
+    {
+        $vendor_user = Socialite::driver("facebook")->user();
+        return "$vendor_user->id , $vendor_user->nickname , $vendor_user->name, $vendor_user->email, $vendor_user->avatar";
+
+//        $user = $socialiteUserService->checkUser(Socialite::driver("facebook")->user());
+//        Auth::login($user);
+//        return redirect("/");
     }
+    public function Demo()
+    {
+        //Official Example :
+        //https://github.com/allpay/PHP/blob/master/AioSDK/example/sample_Credit_CreateOrder.php
+
+        //基本參數(請依系統規劃自行調整)
+        Allpay::i()->Send['ReturnURL']         = "http://www.allpay.com.tw/receive.php" ;
+        Allpay::i()->Send['MerchantTradeNo']   = "Test".time() ;           //訂單編號
+        Allpay::i()->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');      //交易時間
+        Allpay::i()->Send['TotalAmount']       = 2000;                     //交易金額
+        Allpay::i()->Send['TradeDesc']         = "good to drink" ;         //交易描述
+        Allpay::i()->Send['ChoosePayment']     = \PaymentMethod::ALL ;     //付款方式
+
+        //訂單的商品資料
+        array_push(Allpay::i()->Send['Items'], array('Name' => "歐付寶黑芝麻豆漿", 'Price' => (int)"2000",
+            'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "dedwed"));
+
+        //Go to AllPay
+        echo "歐付寶頁面導向中...";
+        echo Allpay::i()->CheckOutString();
+    }
+
 
     public function index()
     {

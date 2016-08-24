@@ -14,6 +14,7 @@ class CreateSocialiteUsersTable extends Migration
     {
         Schema::create('socialite_users', function (Blueprint $table) {
             $table->string("vendor");
+            $table->string("vendor_user_id");
             $table->integer("user_id");
             $table->increments('id');
             $table->timestamps();

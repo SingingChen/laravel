@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{$description}}">
     <meta name="author" content="">
-    <title>{{$title}} </title>
+    <title>{{$title}}</title>
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
@@ -31,7 +32,6 @@
     <![endif]-->
 </head>
 <body>
-
 <div class="header-area">
     <div class="container">
         <div class="row">
@@ -40,8 +40,8 @@
                     <ul>
                         <!--使用Auth功能驗證是否已登入，若是則顯示姓名-->
 
-                        <li><a href="{{url("/cart")}}"><i class="fa fa-user"></i> {{Auth::check()? Auth::user()->name :'My Account'   }}</a></li>
-                        <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+                        <li><a href="{{url("/cart")}}"><i class="fa fa-user"></i> {{Auth::check()? Auth::user()->name :'My Account' }}</a></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{url("")}}" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
                         {{--原為  <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>--}}
                         <li><a href="{{url("/cart")}}"><i class="fa fa-user"></i> My Cart</a></li>
                         <li><a href="{{url("/checkout")}}"><i class="fa fa-user"></i> Checkout</a></li>
@@ -68,6 +68,7 @@
                                 <li><a href="#">English</a></li>
                                 <li><a href="#">French</a></li>
                                 <li><a href="#">German</a></li>
+
                             </ul>
                         </li>
                     </ul>
@@ -88,7 +89,7 @@
             <div class="col-sm-6">
                 <div class="shopping-item">
                     <a href="{{url("/cart")}}">Cart - <span class="cart-amunt">@yield("price")</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                                class="fa fa-shopping-cart"></i> <span class="product-count">2</span></a>
                 </div>
             </div>
         </div>
@@ -184,14 +185,10 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="copyright">
-                    //footer裡面的日期改自動更新  已經改了
---                未改版  <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com"></a></p>
-
                     <p>&copy; {{Date("Y")}} uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com"
                                                                                target="_blank">freshDesignweb.com</a></p>
                 </div>
             </div>
-
             <div class="col-md-4">
                 <div class="footer-card-icon">
                     <i class="fa fa-cc-discover"></i>

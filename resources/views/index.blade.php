@@ -1,7 +1,6 @@
-
 @extends("layouts.main")
 @section("title")
-    test
+
     @endsection
 @section("price")
     $100
@@ -118,7 +117,6 @@
                                         <a href="{{url("/single-product")}}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
-
                                 <h2>Nokia Lumia 1320</h2>
                                 <div class="product-carousel-price">
                                     <ins>$899.00</ins> <del>$999.00</del>
